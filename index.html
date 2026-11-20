@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Captura de Datos</title>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5eee5;
+    color: #514234;
+    min-height: 100vh;
+}
+
+/* ENCABEZADOS */
+h1, h2, h3 {
+    text-align: center;
+    color: #514234;
+    margin-bottom: 20px;
+}
+
+/* TEXTO */
+p {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #766657;
+}
+
+/* CONTENEDORES */
+.container, main, section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 35px;
+    text-align: center;
+}
+
+/* MENÚ */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 22px;
+    background: #fffaf4;
+    border-radius: 50px;
+    margin: 20px auto;
+    width: 90%;
+    box-shadow: 0 4px 15px #8c72501a;
+}
+
+nav a {
+    text-decoration: none;
+    color: #65513e;
+    font-weight: 600;
+}
+
+/* BOTONES GRANDES */
+button, .btn {
+    display: inline-block;
+    background: #967b61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 17px 45px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 15px;
+}
+
+button:hover, .btn:hover {
+    background: #725941;
+    transform: scale(1.04);
+}
+
+/* TARJETAS */
+.card {
+    background: #fffaf4;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 0 5px 20px #8c725015;
+}
+
+/* IMÁGENES */
+img {
+    max-width: 100%;
+    border-radius: 18px;
+}
+
+/* CAMPOS */
+input, textarea, select {
+    padding: 15px;
+    border: 1px solid #d8c8b7;
+    border-radius: 15px;
+    background: #fffaf4;
+    font-size: 15px;
+    margin: 10px;
+}
+
+/* ADAPTACIÓN A CELULAR */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .container, main, section {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+  <h2>Captura de Datos</h2>
+
+  <form id="formulario" action="https://script.google.com/macros/s/AKfycbzXqzDvqGUyVT-y18AliwyLlmtUvy8y4TgfECETX0n8yRZuF123bgx3hmmTWJ1qjFutvQ/exec" method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="dia">Ingrese el numero de dia:</label><br>
+    <input type="text" id="dia" name="dia" required><br><br>
+
+    <label for="dolar">Ingrese el valor del dolar:</label><br>
+    <input type="text" id="dolar" name="dolar" required><br><br>
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
